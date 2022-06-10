@@ -130,8 +130,7 @@ class PersistentTabView extends PersistentTabViewBase {
         "NavBar should have at least 2 or maximum 6 items (Except for styles 15-18)");
   }
 
-  PersistentTabView.custom(
-    this.context, {
+  PersistentTabView.custom(this.context, {
     Key? key,
     required this.screens,
     this.controller,
@@ -145,43 +144,45 @@ class PersistentTabView extends PersistentTabViewBase {
     this.hideNavigationBarWhenKeyboardShows = true,
     this.backgroundColor = CupertinoColors.white,
     CutsomWidgetRouteAndNavigatorSettings routeAndNavigatorSettings =
-        const CutsomWidgetRouteAndNavigatorSettings(),
+    const CutsomWidgetRouteAndNavigatorSettings(),
     this.confineInSafeArea = true,
     this.onWillPop,
     this.stateManagement = true,
     this.handleAndroidBackButtonPress = true,
     this.hideNavigationBar,
     this.screenTransitionAnimation = const ScreenTransitionAnimation(),
+    double navBarHeight = kBottomNavigationBarHeight,
   }) : super(
-          key: key,
-          context: context,
-          screens: screens,
-          controller: controller,
-          margin: margin,
-          routeAndNavigatorSettings: routeAndNavigatorSettings,
-          backgroundColor: backgroundColor,
-          floatingActionButton: floatingActionButton,
-          customWidget: customWidget,
-          itemCount: itemCount,
-          resizeToAvoidBottomInset: resizeToAvoidBottomInset,
-          bottomScreenMargin: bottomScreenMargin,
-          onWillPop: onWillPop,
-          confineInSafeArea: confineInSafeArea,
-          stateManagement: stateManagement,
-          handleAndroidBackButtonPress: handleAndroidBackButtonPress,
-          hideNavigationBar: hideNavigationBar,
-          screenTransitionAnimation: screenTransitionAnimation,
-          isCustomWidget: true,
-          decoration: NavBarDecoration(),
-        ) {
+      key: key,
+      context: context,
+      screens: screens,
+      controller: controller,
+      margin: margin,
+      routeAndNavigatorSettings: routeAndNavigatorSettings,
+      backgroundColor: backgroundColor,
+      floatingActionButton: floatingActionButton,
+      customWidget: customWidget,
+      itemCount: itemCount,
+      resizeToAvoidBottomInset: resizeToAvoidBottomInset,
+      bottomScreenMargin: bottomScreenMargin,
+      onWillPop: onWillPop,
+      confineInSafeArea: confineInSafeArea,
+      stateManagement: stateManagement,
+      handleAndroidBackButtonPress: handleAndroidBackButtonPress,
+      hideNavigationBar: hideNavigationBar,
+      screenTransitionAnimation: screenTransitionAnimation,
+      isCustomWidget: true,
+      decoration: NavBarDecoration(),
+      navBarHeight: navBarHeight
+  ) {
     assert(itemCount == screens.length,
-        "screens and items length should be same. If you are using the onPressed callback function of 'PersistentBottomNavBarItem', enter a dummy screen like Container() in its place in the screens");
+    "screens and items length should be same. If you are using the onPressed callback function of 'PersistentBottomNavBarItem', enter a dummy screen like Container() in its place in the screens");
     assert(
-        routeAndNavigatorSettings.navigatorKeys == null ||
-            routeAndNavigatorSettings.navigatorKeys != null &&
-                routeAndNavigatorSettings.navigatorKeys!.length !=
-                    items!.length,
-        "Number of 'Navigator Keys' must be equal to the number of bottom navigation tabs.");
+    routeAndNavigatorSettings.navigatorKeys == null ||
+        routeAndNavigatorSettings.navigatorKeys != null &&
+            routeAndNavigatorSettings.navigatorKeys!.length !=
+                items!.length,
+    "Number of 'Navigator Keys' must be equal to the number of bottom navigation tabs.");
   }
 }
 
